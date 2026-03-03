@@ -1,0 +1,16 @@
+# AWS sensitive files
+.awsume/cache/
+.aws/credentials
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Shell history
+.zsh_history
+.bash_history
+
+# Zsh completion cache
+.zcompdump*
