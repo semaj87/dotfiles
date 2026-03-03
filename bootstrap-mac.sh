@@ -14,6 +14,7 @@ brew install --cask raycast
 brew install --cask brave-browser
 brew install --cask notion
 brew install --cask jetbrains-toolbox
+brew install --cask jetbrains-gateway
 brew install --cask claude
 brew install --cask virtualbox
 brew install --cask virtualbox-extension-pack
