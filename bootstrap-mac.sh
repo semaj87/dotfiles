@@ -14,7 +14,6 @@ brew install --cask raycast
 brew install --cask brave-browser
 brew install --cask notion
 brew install --cask jetbrains-toolbox
-brew install --cask jetbrains-gateway
 brew install --cask claude
 brew install --cask virtualbox
 brew install --cask virtualbox-extension-pack
@@ -53,7 +52,8 @@ ln -sf "$DOTFILES_DIR/.config/nvim" ~/.config/nvim
 echo ""
 echo "Manual steps remaining:"
 echo "1. Configure Pycharm: Open JetBrains Toolbox and install PyCharm Professional"
-echo "2. Configure DevPod: Set Podman as the provider and add the dotfiles repo URL in Podman desktop"
-echo "3. Configure devcontainer templates: Clone the devcontainer-templates repo in your home directory: git clone git@github.com:semaj87/devcontainer-templates.git"
-echo "4. Configure AlmaLinux: Download AlmaLinux minimal ISO from almalinux.org and move to ~/isos/"
-echo "5. Configure VirtualBox: Create the AlmaLinux VM in VirtualBox using the ISO"
+echo "2. Configure Gateway: Open JetBrains Toolbox and install JetBrains Gateway"
+echo "3. Configure DevPod: Set Podman as the provider and add the dotfiles repo URL in Podman desktop"
+echo "4. Configure devcontainer templates: Clone the devcontainer-templates repo in your home directory: git clone git@github.com:semaj87/devcontainer-templates.git"
+echo "5. Configure AlmaLinux: Download AlmaLinux minimal ISO from almalinux.org and move to ~/isos/"
+echo "6. Configure VirtualBox: Create the AlmaLinux VM in VirtualBox using the ISO"
