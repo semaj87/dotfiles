@@ -2,6 +2,9 @@
 .awsume/cache/
 .aws/credentials
 
+# PyCharm
+.idea/
+
 # macOS
 .DS_Store
 
