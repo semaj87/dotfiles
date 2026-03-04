@@ -16,6 +16,7 @@ export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
+export DOCKER_HOST="unix:///var/folders/2j/kpsqgpd51630nnv5wl64glph0000gn/T/podman/podman-machine-default-api.sock"
 
 
 # =============================================================================
@@ -47,7 +48,6 @@ zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug load
-zplug install
 
 
 # =============================================================================
