@@ -1,5 +1,5 @@
 # =============================================================================
-# POWERLEVEL10K INSTANT PROMPT
+# POWERLEVEL10K INSTANT PROMPT — Mac only
 # Must stay at the top of .zshrc
 # =============================================================================
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
@@ -26,19 +26,17 @@ fi
 
 
 # =============================================================================
-# OH MY ZSH — Mac only
+# OH MY ZSH
 # =============================================================================
-if [[ "$(uname)" == "Darwin" ]]; then
-  export ZSH=$HOME/.oh-my-zsh
-  ZSH_THEME="powerlevel10k/powerlevel10k"
-  source $ZSH/oh-my-zsh.sh
-  source $ZSH/plugins/sudo/sudo.plugin.zsh
-  source $ZSH/plugins/web-search/web-search.plugin.zsh
-  source $ZSH/plugins/copyfile/copyfile.plugin.zsh
-  source $ZSH/plugins/history/history.plugin.zsh
-  source $ZSH/plugins/jsontools/jsontools.plugin.zsh
-  zstyle ':omz:update' mode reminder
-fi
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
+source $ZSH/plugins/sudo/sudo.plugin.zsh
+source $ZSH/plugins/web-search/web-search.plugin.zsh
+source $ZSH/plugins/copyfile/copyfile.plugin.zsh
+source $ZSH/plugins/history/history.plugin.zsh
+source $ZSH/plugins/jsontools/jsontools.plugin.zsh
+zstyle ':omz:update' mode reminder
 
 
 # =============================================================================
@@ -57,6 +55,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
   zplug "zsh-users/zsh-autosuggestions"
   zplug "zsh-users/zsh-completions"
   zplug load
+else
+  # Load plugins via oh-my-zsh custom plugins in containers
+  plugins=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search)
 fi
 
 
@@ -79,6 +80,7 @@ fi
 # =============================================================================
 alias home='cd ~'
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias envcheck='echo "Python: $(which python)"; echo "Version: $(python --version)"; echo "Virtual env: ${VIRTUAL_ENV:-None}"'
 
 if [[ "$(uname)" == "Darwin" ]]; then
   alias ls="eza --icons=always"
@@ -117,12 +119,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias almalinux-start='VBoxManage startvm "AlmaLinux" --type headless'
   alias almalinux-stop='VBoxManage controlvm "AlmaLinux" acpipowerbutton'
 fi
-
-
-# =============================================================================
-# ALIASES — UTILITIES
-# =============================================================================
-alias envcheck='echo "Python: $(which python)"; echo "Version: $(python --version)"; echo "Virtual env: ${VIRTUAL_ENV:-None}"'
 
 
 # =============================================================================
