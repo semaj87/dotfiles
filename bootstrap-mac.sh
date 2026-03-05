@@ -29,6 +29,13 @@ brew install --cask brave-browser
 brew install --cask notion
 
 # ========================================================================================
+# HOMEBREW CASKS — UTILITIES
+# ========================================================================================
+brew install --cask 1password
+brew install --cask nordvpn
+brew install --cask stats
+
+# ========================================================================================
 # HOMEBREW CASKS — JETBRAINS
 # ========================================================================================
 brew install --cask jetbrains-toolbox
@@ -102,3 +109,4 @@ echo "      - Set IDE to PyCharm or None"
 echo "4. Configure templates:      Clone the devcontainer-templates repo into your home directory: git clone git@github.com:semaj87/devcontainer-templates.git"
 echo "5. Configure AlmaLinux:      Download AlmaLinux AArch64 (Apple Silicon) ISO from almalinux.org and move to ~/isos/"
 echo "6. Configure UTM:            Create the AlmaLinux VM in UTM using the AArch64 ISO"
+echo "7. Configure App Store:      Install Be Focused Pro, Theine (if desired)"
