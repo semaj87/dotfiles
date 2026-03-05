@@ -25,19 +25,26 @@ Personal dotfiles and Mac bootstrap configuration for James Aymer. Manages shell
 
 ## New Mac Setup
 
-Clone this repo and run the bootstrap script:
-
-```bash
-git clone https://github.com/semaj87/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-chmod +x bootstrap-mac.sh
-./bootstrap-mac.sh
-```
-
 This will:
 - Install all host tools via Homebrew
 - Create the home directory structure
 - Symlink all config files to their expected locations
+
+### Install Homebrew
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### Clone the dotfiles repo
+```bash
+git clone https://github.com/semaj87/dotfiles.git ~/dotfiles
+```
+
+### Run the bootstrap-mac script
+```bash
+cd ~/dotfiles
+./bootstrap-mac.sh
+```
 
 ### Manual steps after bootstrap
 
