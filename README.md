@@ -59,6 +59,10 @@ cd ~/dotfiles
 5. Download AlmaLinux AArch64 minimal ISO from [almalinux.org](https://almalinux.org) and move to `~/isos/`
 6. Create AlmaLinux VM in UTM using the ISO
 7. Install App Store apps: Be Focused Pro, Theine (if desired)
+8. Restore sensitive files:
+    - Copy: ~/.zshrc.local from 1Password
+    - Copy: ~/.local/bin/tools-access/tools-access.sh from 1Password
+    - Run: chmod +x ~/.local/bin/tools-access/tools-access.sh
 
 ---
 
