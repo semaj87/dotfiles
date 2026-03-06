@@ -62,7 +62,9 @@ cd ~/dotfiles
 8. Restore sensitive files:
     - Copy: ~/.zshrc.local from 1Password
     - Copy: ~/.local/bin/tools-access/tools-access.sh from 1Password
-    - Run: chmod +x ~/.local/bin/tools-access/tools-access.sh
+    - Copy: ~/.gitconfig.work from 1Password
+    - Run:  chmod +x ~/.local/bin/tools-access/tools-access.sh
+    
 
 ---
 
