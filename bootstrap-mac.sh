@@ -25,7 +25,7 @@ brew install --cask nikitabobko/tap/aerospace
 # HOMEBREW CASKS — PRODUCTIVITY
 # ========================================================================================
 brew install --cask raycast
-brew install --cask brave-browser
+brew install --cask vivaldi
 brew install --cask notion
 
 # ========================================================================================

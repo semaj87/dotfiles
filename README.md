@@ -112,20 +112,20 @@ AWS credentials and config live in `~/.aws/` which is also never committed. On c
 ## Tools Managed by This Repo
 
 ### Host Mac
-| Tool | Purpose |
-|---|---|
-| WezTerm | Terminal |
-| Aerospace | Tiling window manager |
-| Podman Desktop | Container engine |
-| DevPod | Dev container lifecycle manager |
-| Raycast | App launcher |
-| Brave | Browser |
-| Notion | Notes |
+| Tool              | Purpose |
+|-------------------|---|
+| WezTerm           | Terminal |
+| Aerospace         | Tiling window manager |
+| Podman Desktop    | Container engine |
+| DevPod            | Dev container lifecycle manager |
+| Raycast           | App launcher |
+| Vivaldi           | Browser |
+| Notion            | Notes |
 | JetBrains Toolbox | IDE manager |
-| 1Password | Password manager |
-| NordVPN | VPN |
-| Stats | Menu bar system monitor |
-| VirtualBox / UTM | VM manager for AlmaLinux |
+| 1Password         | Password manager |
+| NordVPN           | VPN |
+| Stats             | Menu bar system monitor |
+| VirtualBox / UTM  | VM manager for AlmaLinux |
 
 ### Inside Containers
 | Tool | Purpose |
