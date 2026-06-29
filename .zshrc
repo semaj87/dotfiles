@@ -1,12 +1,10 @@
 # =============================================================================
-# POWERLEVEL10K INSTANT PROMPT — Mac only
+# POWERLEVEL10K INSTANT PROMPT
 # Must stay at the top of .zshrc
 # =============================================================================
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-if [[ "$(uname)" == "Darwin" ]]; then
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 
@@ -21,7 +19,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
   export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
   export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
-  export DOCKER_HOST="unix:///var/folders/2j/kpsqgpd51630nnv5wl64glph0000gn/T/podman/podman-machine-default-api.sock"
 fi
 
 
@@ -30,6 +27,13 @@ fi
 # =============================================================================
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  plugins=(git)
+else
+  plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search)
+fi
+
 source $ZSH/oh-my-zsh.sh
 source $ZSH/plugins/sudo/sudo.plugin.zsh
 source $ZSH/plugins/web-search/web-search.plugin.zsh
@@ -55,9 +59,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   zplug "zsh-users/zsh-autosuggestions"
   zplug "zsh-users/zsh-completions"
   zplug load
-else
-  # Load plugins via oh-my-zsh custom plugins in containers
-  plugins=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search)
 fi
 
 
@@ -91,6 +92,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias ldocker='lazydocker'
   alias listplugins=what_plugins_are_installed_on_my_mac
   alias poetrystartenv='source $(poetry env info --path)/bin/activate'
+  alias staywake='caffeinate -d'
 fi
 
 
@@ -146,6 +148,16 @@ if [[ "$(uname)" == "Darwin" ]]; then
       echo -e "**zsh-plugins**"
       echo "sudo, web-search, copyfile, history, jsontools"
   }
+fi
+
+
+# =============================================================================
+# DOCKER CLI COMPLETIONS — Mac only
+# =============================================================================
+if [[ "$(uname)" == "Darwin" ]]; then
+  fpath=(/Users/jamesaymer/.docker/completions $fpath)
+  autoload -Uz compinit
+  compinit
 fi
 
 
