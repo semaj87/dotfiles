@@ -4,80 +4,113 @@ set -e
 echo "Setting up your MacBook Pro..."
 
 # =============================================================================
+# HOMEBREW PATH (Apple Silicon)
+# =============================================================================
+if ! command -v brew &> /dev/null; then
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+fi
+
+# =============================================================================
+# HELPERS — don't let one failed install kill the whole script
+# =============================================================================
+safe_brew_install() {
+  if brew install "$1"; then
+    echo "✓ Installed: $1"
+  else
+    echo "✗ FAILED: $1 — skipping, fix manually later"
+  fi
+}
+
+safe_brew_cask_install() {
+  if brew install --cask "$1"; then
+    echo "✓ Installed: $1"
+  else
+    echo "✗ FAILED: $1 — skipping, fix manually later"
+  fi
+}
+
+# =============================================================================
 # HOMEBREW PACKAGES — CLI TOOLS
 # =============================================================================
-brew install git
-brew install btop
-brew install eza
-brew install lazygit
-brew install lazydocker
-brew install neovim
-brew install ripgrep
-brew install mas
-brew install coreutils
-brew install git-filter-repo
-brew install gnupg
-brew install aws-iam-authenticator
-brew install awscli
-brew install eksctl
-brew install kubernetes-cli
-brew install k9s
-brew install tfswitch
-brew install tflint
-brew install terraform-docs
-brew install cfn-lint
-brew install zsh
-brew install zplug
-brew install zsh-syntax-highlighting
-brew install yarn
+safe_brew_install git
+safe_brew_install btop
+safe_brew_install eza
+safe_brew_install lazygit
+safe_brew_install lazydocker
+safe_brew_install neovim
+safe_brew_install ripgrep
+safe_brew_install mas
+safe_brew_install coreutils
+safe_brew_install git-filter-repo
+safe_brew_install gnupg
+safe_brew_install aws-iam-authenticator
+safe_brew_install awscli
+safe_brew_install eksctl
+safe_brew_install kubernetes-cli
+safe_brew_install k9s
+safe_brew_install tflint
+safe_brew_install terraform-docs
+safe_brew_install cfn-lint
+safe_brew_install zsh
+safe_brew_install zplug
+safe_brew_install zsh-syntax-highlighting
+safe_brew_install yarn
+
+# =============================================================================
+# TFSWITCH (custom tap)
+# =============================================================================
+brew tap warrensbox/tap
+safe_brew_install warrensbox/tap/tfswitch
 
 # =============================================================================
 # HOMEBREW CASKS — DEVELOPMENT TOOLS
 # =============================================================================
-brew install --cask devpod
-brew install --cask insomnia
-brew install --cask gpg-suite
+safe_brew_cask_install devpod
+safe_brew_cask_install insomnia
+safe_brew_cask_install gpg-suite
 
 # =============================================================================
 # HOMEBREW CASKS — TERMINAL AND WINDOW MANAGEMENT
 # =============================================================================
-brew install --cask wezterm
+safe_brew_cask_install wezterm
 brew tap nikitabobko/tap
-brew install --cask nikitabobko/tap/aerospace
+safe_brew_cask_install nikitabobko/tap/aerospace
 
 # =============================================================================
 # HOMEBREW CASKS — PRODUCTIVITY
 # =============================================================================
-brew install --cask raycast
-brew install --cask google-chrome
-brew install --cask notion
+safe_brew_cask_install raycast
+safe_brew_cask_install google-chrome
+safe_brew_cask_install notion
 
 # =============================================================================
 # HOMEBREW CASKS — UTILITIES
 # =============================================================================
-brew install --cask 1password
-brew install --cask nordvpn
-brew install --cask stats
+safe_brew_cask_install 1password
+safe_brew_cask_install nordvpn
+safe_brew_cask_install stats
 
 # =============================================================================
 # HOMEBREW CASKS — JETBRAINS
 # =============================================================================
-brew install --cask jetbrains-toolbox
+safe_brew_cask_install jetbrains-toolbox
 
 # =============================================================================
 # HOMEBREW CASKS — AI
 # =============================================================================
-brew install --cask claude
+safe_brew_cask_install claude
 
 # =============================================================================
 # HOMEBREW CASKS — FONTS
 # =============================================================================
-brew install --cask font-meslo-lg-nerd-font
+safe_brew_cask_install font-meslo-lg-nerd-font
 
 # =============================================================================
 # HOMEBREW CASKS — VIRTUALISATION
 # =============================================================================
-brew install --cask utm
+safe_brew_cask_install utm
 
 # =============================================================================
 # HOME DIRECTORY STRUCTURE

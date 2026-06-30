@@ -30,9 +30,20 @@ This will:
 - Create the home directory structure
 - Symlink all config files to their expected locations
 
+
+### Install Xcode
+```bash
+xcode-select --install
+```
+
 ### Install Homebrew
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+After installing, add Homebrew to your PATH (Apple Silicon only):
+```bash
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 ### Clone the dotfiles repo
@@ -43,6 +54,7 @@ git clone https://github.com/semaj87/dotfiles.git ~/dotfiles
 ### Run the bootstrap-mac script
 ```bash
 cd ~/dotfiles
+chmod +x bootstrap-mac.sh
 ./bootstrap-mac.sh
 ```
 
