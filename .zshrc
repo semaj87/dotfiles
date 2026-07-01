@@ -19,6 +19,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
   export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
   export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
+  export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 fi
 
 
@@ -86,13 +87,11 @@ alias envcheck='echo "Python: $(which python)"; echo "Version: $(python --versio
 if [[ "$(uname)" == "Darwin" ]]; then
   alias ls="eza --icons=always"
   alias brewupdate='brew_update_and_upgrade'
-  alias pipeline='sh /Volumes/JHDD/Cloudystuff/Repos/task-runner/bin/pipeline.sh'
-  alias drive='/Volumes/JHDD'
-  alias bt='/Volumes/JHDD/Cloudystuff/Repos'
   alias ldocker='lazydocker'
   alias listplugins=what_plugins_are_installed_on_my_mac
   alias poetrystartenv='source $(poetry env info --path)/bin/activate'
   alias staywake='caffeinate -d'
+  alias pipeline='sh ~/work/task-runner/bin/pipeline.sh'
 fi
 
 
@@ -115,11 +114,12 @@ alias kctl='kubectl'
 
 
 # =============================================================================
-# ALIASES — VIRTUALBOX — Mac only
+# ALIASES — UTM / ALMALINUX — Mac only
 # =============================================================================
 if [[ "$(uname)" == "Darwin" ]]; then
-  alias almalinux-start='VBoxManage startvm "AlmaLinux" --type headless'
-  alias almalinux-stop='VBoxManage controlvm "AlmaLinux" acpipowerbutton'
+  alias almalinux-start='open -a UTM && utm://start?name=AlmaLinux'
+  alias almalinux-stop='utm://stop?name=AlmaLinux'
+  alias almalinux-ssh='ssh yourusername@192.168.64.2'
 fi
 
 
@@ -155,7 +155,7 @@ fi
 # DOCKER CLI COMPLETIONS — Mac only
 # =============================================================================
 if [[ "$(uname)" == "Darwin" ]]; then
-  fpath=(/Users/jamesaymer/.docker/completions $fpath)
+  fpath=($HOME/.docker/completions $fpath)
   autoload -Uz compinit
   compinit
 fi

@@ -63,22 +63,27 @@ chmod +x bootstrap-mac.sh
 1. Open JetBrains Toolbox and install **PyCharm Professional**
 2. Open JetBrains Toolbox and install **JetBrains Gateway**
 3. Install Docker Desktop, download from: `docker.com/products/docker-desktop (Apple Silicon version)`
-4. Configure DevPod:
+4. Generate a new SSH key for GitHub access:
+   - `ssh-keygen -t ed25519 -C "aymerjames@gmail.com"`
+   - `ssh-add ~/.ssh/id_ed25519`
+   - `cat ~/.ssh/id_ed25519.pub`
+   - Add the output to GitHub: Settings > SSH and GPG keys > New SSH key
+5. Configure DevPod:
     - Set provider to Podman (Docker provider pointing to `/opt/podman/bin/podman`)
     - Set dotfiles repo to `https://github.com/semaj87/dotfiles.git`
     - Set SSH key path to `~/.ssh/id_ed25519`
     - Set IDE to None
-5. Clone devcontainer templates: `git clone https://github.com/semaj87/devcontainer-templates.git ~/devcontainer-templates`
-6. Download AlmaLinux AArch64 minimal ISO from [almalinux.org](https://almalinux.org) and move to `~/isos/`
-7. Create AlmaLinux VM in UTM using the ISO
-8. Install App Store apps: Be Focused Pro, Theine (if desired)
-9. Restore sensitive files:
+6. Clone devcontainer templates: `git clone https://github.com/semaj87/devcontainer-templates.git ~/devcontainer-templates`
+7. Download AlmaLinux AArch64 minimal ISO from [almalinux.org](https://almalinux.org) and move to `~/isos/`
+8. Create AlmaLinux VM in UTM using the ISO
+9. Install App Store apps: Be Focused Pro, Theine (if desired)
+10. Restore sensitive files:
     - Copy: ~/.zshrc.local from 1Password
     - Copy: ~/.local/bin/tools-access/tools-access.sh from 1Password
     - Copy: ~/.gitconfig.work from 1Password
     - Run:  chmod +x ~/.local/bin/tools-access/tools-access.sh
-10. Install IB Gateway: Download Apple Silicon version from:
-    - `https://www.interactivebrokers.com/en/trading/ibgateway-latest.php` 
+11. Install IB Gateway: Download Apple Silicon version from:
+    - `https://www.interactivebrokers.com/en/trading/ibgateway-latest.php`
     
 
 ---
