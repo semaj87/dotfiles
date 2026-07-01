@@ -99,9 +99,6 @@ fi
 # ALIASES — AWS
 # =============================================================================
 alias awsume=". awsume"
-if [[ "$(uname)" == "Darwin" ]]; then
-  alias awsume="source \$(pyenv which awsume)"
-fi
 alias listprofiles='awsume --list-profiles'
 alias ec2-list='aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, State.Name, Tags[?Key=='\''Name'\'']|[0].Value]" --output table'
 alias ec2-connect='aws ssm start-session --target'

@@ -30,11 +30,6 @@ if ! command -v brew &> /dev/null; then
 fi
 
 # =============================================================================
-# GIT — use SSH for GitHub instead of HTTPS
-# =============================================================================
-git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-# =============================================================================
 # HELPERS — don't let one failed install kill the whole script
 # =============================================================================
 safe_brew_install() {
@@ -80,6 +75,7 @@ safe_brew_install zsh-syntax-highlighting
 safe_brew_install yarn
 safe_brew_install pyenv
 safe_brew_install pyenv-virtualenv
+safe_brew_install pipx
 
 # =============================================================================
 # TFSWITCH (custom tap)
@@ -94,11 +90,19 @@ brew tap terraform-linters/tap
 safe_brew_install terraform-linters/tap/tflint
 
 # =============================================================================
+# PIPX — PYTHON CLI TOOLS
+# =============================================================================
+pipx ensurepath
+pipx install awsume
+echo "✓ Installed: awsume"
+
+# =============================================================================
 # HOMEBREW CASKS — DEVELOPMENT TOOLS
 # =============================================================================
 safe_brew_cask_install devpod
 safe_brew_cask_install insomnia
 safe_brew_cask_install gpg-suite
+safe_brew_cask_install sublime-text
 
 # =============================================================================
 # HOMEBREW CASKS — TERMINAL AND WINDOW MANAGEMENT
@@ -177,7 +181,13 @@ else
 fi
 
 echo "Installing zplug plugins..."
+export ZPLUG_PROTOCOL=HTTPS
 source "$HOME/.zplug/init.zsh"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "dracula/zsh", as:theme
 zplug install
 echo "✓ Installed: zplug plugins"
 
@@ -249,7 +259,7 @@ echo "4.  Generate a new SSH key for GitHub access:"
 echo "     - ssh-keygen -t ed25519 -C aymerjames@gmail.com"
 echo "     - ssh-add ~/.ssh/id_ed25519"
 echo "     - cat ~/.ssh/id_ed25519.pub"
-echo "     - Copy the output and add it to GitHub: Settings > SSH and GPG keys > New SSH key"
+echo "     - Add the output to GitHub: Settings > SSH and GPG keys > New SSH key"
 echo "5.  Configure DevPod:"
 echo "     - Add Docker as the provider (DevPod will find Docker automatically)"
 echo "     - Set Dotfiles repo to: https://github.com/semaj87/dotfiles.git"
