@@ -90,8 +90,8 @@ safe_brew_install warrensbox/tap/tfswitch
 # =============================================================================
 # TFLINT (custom tap)
 # =============================================================================
-brew tap terraform-linters/tflint
-safe_brew_install terraform-linters/tflint/tflint
+brew tap terraform-linters/tap
+safe_brew_install terraform-linters/tap/tflint
 
 # =============================================================================
 # HOMEBREW CASKS — DEVELOPMENT TOOLS
