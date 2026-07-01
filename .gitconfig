@@ -4,6 +4,3 @@
 
 [includeIf "gitdir:~/work/"]
     path = ~/.gitconfig.work
-
-[url "git@github.com:"]
-    insteadOf = https://github.com/
