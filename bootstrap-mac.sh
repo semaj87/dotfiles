@@ -92,9 +92,29 @@ safe_brew_install terraform-linters/tap/tflint
 # =============================================================================
 # PIPX — PYTHON CLI TOOLS
 # =============================================================================
-pipx ensurepath
-pipx install awsume
-echo "✓ Installed: awsume"
+if ! command -v pipx &> /dev/null; then
+  echo "Installing pipx via brew..."
+  if ! brew install pipx; then
+    echo "Brew install failed, trying pip fallback..."
+    python3 -m pip install --user pipx
+    export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+  fi
+  python3 -m pipx ensurepath
+  echo "✓ Installed: pipx"
+else
+  echo "✓ Already installed: pipx"
+fi
+
+# =============================================================================
+# AWSUME
+# =============================================================================
+if ! pipx list | grep -q awsume; then
+  echo "Installing awsume..."
+  pipx install awsume
+  echo "✓ Installed: awsume"
+else
+  echo "✓ Already installed: awsume"
+fi
 
 # =============================================================================
 # HOMEBREW CASKS — DEVELOPMENT TOOLS
@@ -287,4 +307,9 @@ echo "     - Copy ~/.local/bin/tools-access/tools-access.sh from 1Password"
 echo "     - Run: chmod +x ~/.local/bin/tools-access/tools-access.sh"
 echo "11. Install IB Gateway:        Download Apple Silicon version from:"
 echo "     https://www.interactivebrokers.com/en/trading/ibgateway-latest.php"
+echo "12. Restore AWS config:"
+echo "      - Copy ~/.aws/config from 1Password"
+echo "      - Copy ~/.aws/credentials from 1Password"
+echo "      - mkdir -p ~/.aws"
+echo "      - Paste contents into ~/.aws/config and ~/.aws/credentials"
 echo ""
