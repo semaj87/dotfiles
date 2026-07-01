@@ -73,7 +73,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
-  export PROMPT='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }'"$PROMPT"
 fi
 
 
