@@ -67,7 +67,6 @@ safe_brew_install awscli
 safe_brew_install eksctl
 safe_brew_install kubernetes-cli
 safe_brew_install k9s
-safe_brew_install tflint
 safe_brew_install terraform-docs
 safe_brew_install cfn-lint
 safe_brew_install zsh
@@ -82,6 +81,12 @@ safe_brew_install pyenv-virtualenv
 # =============================================================================
 brew tap warrensbox/tap
 safe_brew_install warrensbox/tap/tfswitch
+
+# =============================================================================
+# TFLINT (custom tap)
+# =============================================================================
+brew tap terraform-linters/tflint
+safe_brew_install terraform-linters/tflint/tflint
 
 # =============================================================================
 # HOMEBREW CASKS — DEVELOPMENT TOOLS
