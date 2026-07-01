@@ -30,6 +30,11 @@ if ! command -v brew &> /dev/null; then
 fi
 
 # =============================================================================
+# GIT — use SSH for GitHub instead of HTTPS
+# =============================================================================
+git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+# =============================================================================
 # HELPERS — don't let one failed install kill the whole script
 # =============================================================================
 safe_brew_install() {
