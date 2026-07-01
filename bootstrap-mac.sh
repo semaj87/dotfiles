@@ -176,6 +176,11 @@ else
   echo "✓ Already installed: zplug"
 fi
 
+echo "Installing zplug plugins..."
+source "$HOME/.zplug/init.zsh"
+zplug install
+echo "✓ Installed: zplug plugins"
+
 # =============================================================================
 # HOME DIRECTORY STRUCTURE
 # =============================================================================
@@ -237,7 +242,6 @@ echo "  ╚════██║   ██║   ██╔══╝  ██╔═�
 echo "  ███████║   ██║   ███████╗██║     ███████║"
 echo "  ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚══════╝"
 echo ""
-echo "Manual steps remaining:"
 echo "1.  Configure PyCharm:        Open JetBrains Toolbox and install PyCharm Professional"
 echo "2.  Configure Gateway:        Open JetBrains Toolbox and install JetBrains Gateway"
 echo "3.  Install Docker Desktop:   Download from docker.com/products/docker-desktop (Apple Silicon version)"
@@ -245,7 +249,7 @@ echo "4.  Generate a new SSH key for GitHub access:"
 echo "     - ssh-keygen -t ed25519 -C aymerjames@gmail.com"
 echo "     - ssh-add ~/.ssh/id_ed25519"
 echo "     - cat ~/.ssh/id_ed25519.pub"
-echo "     - Add the output to GitHub: Settings > SSH and GPG keys > New SSH key"
+echo "     - Copy the output and add it to GitHub: Settings > SSH and GPG keys > New SSH key"
 echo "5.  Configure DevPod:"
 echo "     - Add Docker as the provider (DevPod will find Docker automatically)"
 echo "     - Set Dotfiles repo to: https://github.com/semaj87/dotfiles.git"
@@ -253,7 +257,18 @@ echo "     - Set SSH key path to: ~/.ssh/id_ed25519"
 echo "     - Set IDE to None"
 echo "6.  Clone templates:           git clone git@github.com:semaj87/devcontainer-templates.git ~/devcontainer-templates"
 echo "7.  Download AlmaLinux:        Download AlmaLinux AArch64 (Apple Silicon) ISO from almalinux.org and move to ~/isos/"
-echo "8.  Configure UTM:             Create the AlmaLinux VM in UTM using the AArch64 ISO"
+echo "8.  Configure UTM — Create a new VM with these exact settings:"
+echo "     - Click: Create a New Virtual Machine > Virtualize > Linux"
+echo "     - Boot ISO: select AlmaLinux AArch64 ISO from ~/isos/"
+echo "     - Enable display output: yes"
+echo "     - Use Apple Virtualization: no (uses QEMU)"
+echo "     - Architecture: ARM64 (aarch64)"
+echo "     - Machine: QEMU 10.0 ARM Virtual Machine (virt)"
+echo "     - Memory: 2GB"
+echo "     - Storage: 20GB (recommended)"
+echo "     - Network: Shared Network (virtio-net-pci)"
+echo "     - Name the VM: AlmaLinux"
+echo "     - Boot and install AlmaLinux, then eject the ISO when complete"
 echo "9.  Get App Store apps:        Install Be Focused Pro, Theine (if desired)"
 echo "10. Restore sensitive files:"
 echo "     - Copy ~/.zshrc.local from 1Password"

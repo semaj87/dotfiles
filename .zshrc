@@ -49,6 +49,7 @@ zstyle ':omz:update' mode reminder
 # =============================================================================
 if [[ "$(uname)" == "Darwin" ]]; then
   export ZPLUG=$HOME/.zplug
+  export ZPLUG_PROTOCOL=HTTPS
   source $ZPLUG/init.zsh
   source $ZPLUG/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source $ZPLUG/repos/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -157,6 +158,14 @@ if [[ "$(uname)" == "Darwin" ]]; then
   fpath=($HOME/.docker/completions $fpath)
   autoload -Uz compinit
   compinit
+fi
+
+
+# =============================================================================
+# SSH AGENT — Mac only
+# =============================================================================
+if [[ "$(uname)" == "Darwin" ]]; then
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519 2>/dev/null
 fi
 
 
