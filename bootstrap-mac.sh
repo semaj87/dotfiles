@@ -74,6 +74,8 @@ safe_brew_install zsh
 safe_brew_install zplug
 safe_brew_install zsh-syntax-highlighting
 safe_brew_install yarn
+safe_brew_install pyenv
+safe_brew_install pyenv-virtualenv
 
 # =============================================================================
 # TFSWITCH (custom tap)
@@ -128,6 +130,41 @@ safe_brew_cask_install font-meslo-lg-nerd-font
 # HOMEBREW CASKS — VIRTUALISATION
 # =============================================================================
 safe_brew_cask_install utm
+
+# =============================================================================
+# OH MY ZSH
+# =============================================================================
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  echo "✓ Installed: oh-my-zsh"
+else
+  echo "✓ Already installed: oh-my-zsh"
+fi
+
+# =============================================================================
+# POWERLEVEL10K
+# =============================================================================
+if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+  echo "Installing Powerlevel10k..."
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  echo "✓ Installed: Powerlevel10k"
+else
+  echo "✓ Already installed: Powerlevel10k"
+fi
+
+# =============================================================================
+# ZPLUG PLUGINS
+# =============================================================================
+if [ ! -d "$HOME/.zplug" ]; then
+  echo "Installing zplug..."
+  curl -sL --proto-redir -all,https \
+    https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  echo "✓ Installed: zplug"
+else
+  echo "✓ Already installed: zplug"
+fi
 
 # =============================================================================
 # HOME DIRECTORY STRUCTURE
@@ -201,7 +238,7 @@ echo "     - cat ~/.ssh/id_ed25519.pub"
 echo "     - Add the output to GitHub: Settings > SSH and GPG keys > New SSH key"
 echo "5.  Configure DevPod:"
 echo "     - Add Docker as the provider (DevPod will find Docker automatically)"
-echo "     - Set Dotfiles repo to: git@github.com/semaj87/dotfiles.git"
+echo "     - Set Dotfiles repo to: https://github.com/semaj87/dotfiles.git"
 echo "     - Set SSH key path to: ~/.ssh/id_ed25519"
 echo "     - Set IDE to None"
 echo "6.  Clone templates:           git clone git@github.com:semaj87/devcontainer-templates.git ~/devcontainer-templates"
@@ -213,5 +250,6 @@ echo "     - Copy ~/.zshrc.local from 1Password"
 echo "     - Copy ~/.gitconfig.work from 1Password"
 echo "     - Copy ~/.local/bin/tools-access/tools-access.sh from 1Password"
 echo "     - Run: chmod +x ~/.local/bin/tools-access/tools-access.sh"
-echo "11. Install IB Gateway:       Download Apple Silicon version from:"
+echo "11. Install IB Gateway:        Download Apple Silicon version from:"
 echo "     https://www.interactivebrokers.com/en/trading/ibgateway-latest.php"
+echo ""
