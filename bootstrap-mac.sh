@@ -73,6 +73,7 @@ safe_brew_install zsh
 safe_brew_install zplug
 safe_brew_install zsh-syntax-highlighting
 safe_brew_install yarn
+safe_brew_install node
 safe_brew_install pyenv
 safe_brew_install pyenv-virtualenv
 
@@ -273,6 +274,7 @@ echo "✓ Neovim config symlinked"
 # =============================================================================
 # VERIFICATION
 # =============================================================================
+export PATH="$PATH:$HOME/.local/bin:$HOME/Library/Python/3.9/bin"
 echo ""
 echo "Running verification checks..."
 echo ""
@@ -320,7 +322,7 @@ verify "~/isos exists" "[ -d ~/isos ]"
 # macOS defaults
 verify "KeyRepeat set" "[ $(defaults read NSGlobalDomain KeyRepeat) -eq 1 ]"
 verify "InitialKeyRepeat set" "[ $(defaults read NSGlobalDomain InitialKeyRepeat) -eq 30 ]"
-verify "Batter percentage shown" "[ $(defaults read com.apple.controlcenter BatteryShowPercentage) -eq 1 ]"
+verify "Battery percentage shown" "[ $(defaults read com.apple.controlcenter BatteryShowPercentage) -eq 1 ]"
 
 echo ""
 echo "Verification complete — check any ✗ items above"
