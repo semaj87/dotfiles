@@ -106,6 +106,14 @@ chmod +x bootstrap-mac.sh
       - Clone any repo via HTTPS and enter username + token when prompted
       - Git will store credentials automatically for future use
       - `git clone https://gitlab.tools.btcsp.co.uk/org/repo.git ~/work/repo`
+15. Restore Zscaler certificate:
+      - Copy zscaler-ca.crt from 1Password
+      - Copy to each devcontainer template .devcontainer directory:
+        - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/python-aws/.devcontainer/
+        - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/python/.devcontainer/
+        - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/quant-dev/.devcontainer/
+        - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/kubernetes/.devcontainer/
+        - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/nvim-practice/.devcontainer/
 ---
 
 ## Container Setup
