@@ -212,6 +212,13 @@ zplug install
 echo "✓ Installed: zplug plugins"
 
 # =============================================================================
+# MACOS DEFAULTS
+# =============================================================================
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 30
+echo "✓ macOS keyboard repeat default speeds configured"
+
+# =============================================================================
 # HOME DIRECTORY STRUCTURE
 # =============================================================================
 mkdir -p ~/work
@@ -301,15 +308,13 @@ echo "     - Name the VM: AlmaLinux"
 echo "     - Boot and install AlmaLinux, then eject the ISO when complete"
 echo "9.  Get App Store apps:        Install Be Focused Pro, Theine (if desired)"
 echo "10. Restore sensitive files:"
-echo "     - Copy ~/.zshrc.local from 1Password"
-echo "     - Copy ~/.gitconfig.work from 1Password"
-echo "     - Copy ~/.local/bin/tools-access/tools-access.sh from 1Password"
+echo "     - Copy ~/.zshrc.local from 1Password to a newly created ~/.zshrc.local"
+echo "     - Copy ~/.gitconfig.work from 1Password to a newly created ~/.gitconfig.work"
+echo "     - Copy ~/.local/bin/tools-access/tools-access.sh from 1Password to a newly created ~/.local/bin/tools-access/tools-access.sh"
 echo "     - Run: chmod +x ~/.local/bin/tools-access/tools-access.sh"
 echo "11. Install IB Gateway:        Download Apple Silicon version from:"
 echo "     https://www.interactivebrokers.com/en/trading/ibgateway-latest.php"
 echo "12. Restore AWS config:"
-echo "      - Copy ~/.aws/config from 1Password"
-echo "      - Copy ~/.aws/credentials from 1Password"
-echo "      - mkdir -p ~/.aws"
-echo "      - Paste contents into ~/.aws/config and ~/.aws/credentials"
+echo "      - Copy ~/.aws/config from 1Password to a newly created ~/.aws/config"
+echo "      - Copy ~/.aws/credentials from 1Password to a newly created ~/.aws/credentials"
 echo ""

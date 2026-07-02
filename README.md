@@ -89,13 +89,15 @@ chmod +x bootstrap-mac.sh
       - Boot and install AlmaLinux, then eject the ISO when complete
 9.  Install App Store apps: Be Focused Pro, Theine (if desired)
 10. Restore sensitive files:
-      - Copy: ~/.zshrc.local from 1Password
-      - Copy: ~/.local/bin/tools-access/tools-access.sh from 1Password
-      - Copy: ~/.gitconfig.work from 1Password
+      - Copy ~/.zshrc.local from 1Password to a newly created ~/.zshrc.local
+      - Copy ~/.gitconfig.work from 1Password to a newly created ~/.gitconfig.work
+      - Copy ~/.local/bin/tools-access/tools-access.sh from 1Password to a newly created ~/.local/bin/tools-access/tools-access.sh
       - Run:  chmod +x ~/.local/bin/tools-access/tools-access.sh
 11. Install IB Gateway: Download Apple Silicon version from:
       - `https://www.interactivebrokers.com/en/trading/ibgateway-latest.php`
-    
+12. Restore AWS config:
+      - Copy ~/.aws/config from 1Password to a newly created ~/.aws/config
+      - Copy ~/.aws/credentials from 1Password to a newly created ~/.aws/credentials
 
 ---
 
