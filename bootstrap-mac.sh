@@ -210,7 +210,7 @@ zsh -c "
   zplug 'zsh-users/zsh-completions'
   zplug 'dracula/zsh', as:theme
   zplug install
-"
+" || true
 echo "✓ Installed: zplug plugins"
 
 # =============================================================================
