@@ -75,7 +75,6 @@ safe_brew_install zsh-syntax-highlighting
 safe_brew_install yarn
 safe_brew_install pyenv
 safe_brew_install pyenv-virtualenv
-safe_brew_install pipx
 
 # =============================================================================
 # TFSWITCH (custom tap)
