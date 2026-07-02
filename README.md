@@ -98,7 +98,8 @@ chmod +x bootstrap-mac.sh
 12. Restore AWS config:
       - Copy ~/.aws/config from 1Password to a newly created ~/.aws/config
       - Copy ~/.aws/credentials from 1Password to a newly created ~/.aws/credentials
-
+13. Apply keyboard settings: Log out and back in for keyboard repeat speed to take effect
+      - Apple menu > Log Out > Log back in
 ---
 
 ## Container Setup
