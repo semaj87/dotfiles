@@ -263,7 +263,68 @@ ln -sf "$DOTFILES_DIR/.config/aerospace/aerospace.toml" ~/.config/aerospace/aero
 # =============================================================================
 # NEOVIM
 # =============================================================================
+if [ -d ~/.config/nvim ] && [ ! -L ~/.config/nvim ]; then
+  echo "Removing existing nvim directory to replace with symlink..."
+  sudo rm -rf ~/.config/nvim
+fi
 ln -sf "$DOTFILES_DIR/.config/nvim" ~/.config/nvim
+echo "✓ Neovim config symlinked"
+
+# =============================================================================
+# VERIFICATION
+# =============================================================================
+echo ""
+echo "Running verification checks..."
+echo ""
+
+verify() {
+  if eval "$2" &>/dev/null; then
+    echo "✓ $1"
+  else
+    echo "✗ $1 — check manually"
+  fi
+}
+
+# Tools
+verify "git" "git --version"
+verify "aws CLI" "aws --version"
+verify "kubectl" "kubectl version --client"
+verify "tfswitch" "tfswitch --version"
+verify "tflint" "tflint --version"
+verify "awsume" "awsume --version"
+verify "devpod" "devpod version"
+verify "docker" "docker --version"
+verify "lazygit" "lazygit --version"
+verify "btop" "btop --version"
+verify "eza" "eza --version"
+verify "neovim" "nvim --version"
+verify "pyenv" "pyenv --version"
+verify "pipx" "pipx --version"
+verify "node" "node --version"
+verify "yarn" "yarn --version"
+
+# Symlinks
+verify ".zshrc symlink" "[ -L ~/.zshrc ]"
+verify ".gitconfig symlink" "[ -L ~/.gitconfig ]"
+verify ".p10k.zsh symlink" "[ -L ~/.p10k.zsh ]"
+verify "wezterm config symlink" "[ -L ~/.config/wezterm/wezterm.lua ]"
+verify "nvim config symlink" "[ -L ~/.config/nvim ]"
+verify "aerospace config symlink" "[ -L ~/.config/aerospace/aerospace.toml ]"
+
+# Directories
+verify "~/work exists" "[ -d ~/work ]"
+verify "~/personal exists" "[ -d ~/personal ]"
+verify "~/learning exists" "[ -d ~/learning ]"
+verify "~/isos exists" "[ -d ~/isos ]"
+
+# macOS defaults
+verify "KeyRepeat set" "[ $(defaults read NSGlobalDomain KeyRepeat) -eq 1 ]"
+verify "InitialKeyRepeat set" "[ $(defaults read NSGlobalDomain InitialKeyRepeat) -eq 30 ]"
+verify "Batter percentage shown" "[ $(defaults read com.apple.controlcenter BatteryShowPercentage) -eq 1 ]"
+
+echo ""
+echo "Verification complete — check any ✗ items above"
+echo ""
 
 # =============================================================================
 # MANUAL STEPS
