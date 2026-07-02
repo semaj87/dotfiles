@@ -93,14 +93,16 @@ safe_brew_install terraform-linters/tap/tflint
 # PIPX — PYTHON CLI TOOLS
 # =============================================================================
 if ! command -v pipx &> /dev/null; then
-  echo "Installing pipx via brew..."
-  if ! brew install pipx; then
-    echo "Brew install failed, trying pip fallback..."
+  echo "Installing pipx..."
+  if brew install pipx 2>/dev/null; then
+    echo "✓ Installed: pipx via brew"
+  else
+    echo "Brew install blocked, falling back to pip..."
     python3 -m pip install --user pipx
     export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+    python3 -m pipx ensurepath
+    echo "✓ Installed: pipx via pip fallback"
   fi
-  python3 -m pipx ensurepath
-  echo "✓ Installed: pipx"
 else
   echo "✓ Already installed: pipx"
 fi
@@ -122,7 +124,6 @@ fi
 safe_brew_cask_install devpod
 safe_brew_cask_install insomnia
 safe_brew_cask_install gpg-suite
-safe_brew_cask_install sublime-text
 
 # =============================================================================
 # HOMEBREW CASKS — TERMINAL AND WINDOW MANAGEMENT
