@@ -202,13 +202,15 @@ fi
 
 echo "Installing zplug plugins..."
 export ZPLUG_PROTOCOL=HTTPS
-source "$HOME/.zplug/init.zsh"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "dracula/zsh", as:theme
-zplug install
+zsh -c "
+  source \$HOME/.zplug/init.zsh
+  zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+  zplug 'zsh-users/zsh-history-substring-search', defer:3
+  zplug 'zsh-users/zsh-autosuggestions'
+  zplug 'zsh-users/zsh-completions'
+  zplug 'dracula/zsh', as:theme
+  zplug install
+"
 echo "✓ Installed: zplug plugins"
 
 # =============================================================================
