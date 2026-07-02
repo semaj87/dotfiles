@@ -100,6 +100,12 @@ chmod +x bootstrap-mac.sh
       - Copy ~/.aws/credentials from 1Password to a newly created ~/.aws/credentials
 13. Apply keyboard settings: Log out and back in for keyboard repeat speed to take effect
       - Apple menu > Log Out > Log back in
+14. Configure GitLab access:
+      - Go to gitlab.tools.btcsp.co.uk > Preferences > Access Tokens
+      - Create token with the appropriate scope level
+      - Clone any repo via HTTPS and enter username + token when prompted
+      - Git will store credentials automatically for future use
+      - `git clone https://gitlab.tools.btcsp.co.uk/org/repo.git ~/work/repo`
 ---
 
 ## Container Setup

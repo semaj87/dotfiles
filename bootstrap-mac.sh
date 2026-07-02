@@ -272,6 +272,12 @@ ln -sf "$DOTFILES_DIR/.config/nvim" ~/.config/nvim
 echo "✓ Neovim config symlinked"
 
 # =============================================================================
+# GIT CREDENTIAL HELPER
+# =============================================================================
+git config --global credential.helper store
+echo "✓ Git credential helper configured"
+
+# =============================================================================
 # VERIFICATION
 # =============================================================================
 export PATH="$PATH:$HOME/.local/bin:$HOME/Library/Python/3.9/bin"
@@ -386,4 +392,10 @@ echo "      - Copy ~/.aws/config from 1Password to a newly created ~/.aws/config
 echo "      - Copy ~/.aws/credentials from 1Password to a newly created ~/.aws/credentials"
 echo "13. Apply keyboard settings: Log out and back in for keyboard repeat speed to take effect"
 echo "      - Apple menu > Log Out > Log back in"
+echo "14. Configure GitLab access:"
+echo "      - Go to gitlab.tools.btcsp.co.uk > Preferences > Access Tokens"
+echo "      - Create token with the appropriate scope level"
+echo "      - Clone any repo via HTTPS and enter username + token when prompted"
+echo "      - Git will store credentials automatically for future use"
+echo "      - git clone https://gitlab.tools.btcsp.co.uk/org/repo.git ~/work/repo"
 echo ""
