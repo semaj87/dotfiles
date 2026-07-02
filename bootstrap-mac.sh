@@ -218,7 +218,9 @@ echo "✓ Installed: zplug plugins"
 # =============================================================================
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 30
-echo "✓ macOS keyboard repeat default speeds configured"
+defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
+defaults write com.apple.controlcenter BatteryShowPercentage -bool true
+echo "✓ macOS keyboard repeat default speeds and battery percentage configured"
 
 # =============================================================================
 # HOME DIRECTORY STRUCTURE
