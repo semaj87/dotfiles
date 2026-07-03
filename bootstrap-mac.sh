@@ -124,6 +124,7 @@ fi
 safe_brew_cask_install devpod
 safe_brew_cask_install insomnia
 safe_brew_cask_install gpg-suite
+safe_brew_cask_install sublime-text
 
 # =============================================================================
 # HOMEBREW CASKS — TERMINAL AND WINDOW MANAGEMENT
@@ -272,12 +273,6 @@ ln -sf "$DOTFILES_DIR/.config/nvim" ~/.config/nvim
 echo "✓ Neovim config symlinked"
 
 # =============================================================================
-# GIT CREDENTIAL HELPER
-# =============================================================================
-git config --global credential.helper store
-echo "✓ Git credential helper configured"
-
-# =============================================================================
 # VERIFICATION
 # =============================================================================
 export PATH="$PATH:$HOME/.local/bin:$HOME/Library/Python/3.9/bin"
@@ -362,7 +357,7 @@ echo "     - cat ~/.ssh/id_ed25519.pub"
 echo "     - Add the output to GitHub: Settings > SSH and GPG keys > New SSH key"
 echo "5.  Configure DevPod:"
 echo "     - Add Docker as the provider (DevPod will find Docker automatically)"
-echo "     - Set Dotfiles repo to: https://github.com/semaj87/dotfiles.git"
+echo "     - Set Dotfiles repo to: git@github.com:semaj87/dotfiles.git"
 echo "     - Set SSH key path to: ~/.ssh/id_ed25519"
 echo "     - Set IDE to None"
 echo "6.  Clone templates:           git clone git@github.com:semaj87/devcontainer-templates.git ~/devcontainer-templates"
@@ -398,12 +393,4 @@ echo "      - Create token with the appropriate scope level"
 echo "      - Clone any repo via HTTPS and enter username + token when prompted"
 echo "      - Git will store credentials automatically for future use"
 echo "      - git clone https://gitlab.tools.btcsp.co.uk/org/repo.git ~/work/repo"
-echo "15. Restore Zscaler certificate:"
-echo "      - Copy zscaler-ca.crt from 1Password"
-echo "      - Copy to each devcontainer template .devcontainer directory:"
-echo "       - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/python-aws/.devcontainer/"
-echo "       - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/python/.devcontainer/"
-echo "       - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/quant-dev/.devcontainer/"
-echo "       - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/kubernetes/.devcontainer/"
-echo "       - cp ~/Downloads/zscaler-ca.crt ~/devcontainer-templates/nvim-practice/.devcontainer/"
 echo ""

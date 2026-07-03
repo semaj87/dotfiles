@@ -116,7 +116,7 @@ alias kctl='kubectl'
 if [[ "$(uname)" == "Darwin" ]]; then
   alias almalinux-start='open -a UTM && utm://start?name=AlmaLinux'
   alias almalinux-stop='utm://stop?name=AlmaLinux'
-  alias almalinux-ssh='ssh yourusername@192.168.64.2'
+  alias almalinux-ssh='ssh jaymer@192.168.64.2'
 fi
 
 
