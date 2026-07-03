@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal dotfiles and Mac bootstrap configuration for James Aymer. Manages shell, editor, and tool configs across the host Mac and dev containers.
+Personal dotfiles and Mac bootstrap configuration. Manages shell, editor, and tool configs across host Mac and dev containers for development environments.
 
 ---
 
