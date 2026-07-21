@@ -19,6 +19,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
   export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
   export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
+  export PATH="$PATH:/opt/homebrew/opt/python@3.13/libexec/bin"
+  export PATH="/opt/homebrew/bin:$PATH"
   export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 fi
 
@@ -176,3 +178,6 @@ fi
 # LOCAL/PRIVATE CONFIG — load last (never committed to git)
 # =============================================================================
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Created by `pipx` on 2026-07-01 16:37:48
+export PATH="$PATH:/Users/jamesaymer/Library/Python/3.9/bin"
